@@ -7,7 +7,13 @@ authors = [
     { name = "Marco Ramos", email = "ticktask@marcoramos.me" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "platformdirs>=4.5.0",
+    "pillow>=11.3.0",
+    "pystray>=0.19.5",
+    "sqlalchemy>=2.0.48",
+    "textual>=6.8.0",
+]
 
 [project.scripts]
 ticktask = "ticktask.main:main"
@@ -26,14 +32,32 @@ dev = [
     "ruff>=0.15.10",
 ]
 
+[tool.ruff]
+include = [
+    "src/**/*.py",
+    "tests/**/*.py"
+]
+
 [tool.mypy]
 python_version = "3.13"
 files = ["src", "tests"]
 mypy_path = "src"
 explicit_package_bases = true
 
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = [
+    "pystray.*"
+]
+
 [tool.pytest.ini_options]
-addopts = "--cov=ticktask --cov-report=term-missing"
+addopts = [
+    "--verbose",
+    "--cov=ticktask",
+    "--cov-branch",
+    "--cov-report=term-missing",
+    "--cov-fail-under=60"
+]
 testpaths = ["tests"]
 
 [tool.coverage.run]
@@ -44,6 +68,11 @@ omit = ["tests/*", "**/__init__.py"]
 show_missing = true
 skip_covered = true
 fail_under = 60
+exclude_lines = [
+    "pragma: no cover",
+    "@abc.abstractmethod",
+    "raise NotImplementedError",
+]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
