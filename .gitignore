@@ -220,3 +220,7 @@ __marimo__/
 
 # diretory for local data
 local/
+
+# SQLite WAL sidecar files
+*.db-wal
+*.db-shm

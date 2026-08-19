@@ -1,4 +1,4 @@
-# ticktask
+# TickTask
 
 <div align="center">
 
@@ -10,7 +10,14 @@
 
 </div>
 
-Pomodoro-style terminal task manager
+Pomodoro-style terminal task manager built with [Textual](https://textual.textualize.io/)
+
+Ticktask combines a Pomodoro timer, project selection, task creation, task completion and task archiving in a terminal UI. It can also run as a timer-only app.
+
+## Requirements
+
+- Python `>=3.13`
+- [`uv`](https://docs.astral.sh/uv/) recommended, pr `pip`
 
 ## Setup & Installation
 
@@ -27,11 +34,40 @@ cd ticktask
 uv sync
 ```
 
+With `pip`:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
+
 ## How to use
 
 To run using the managed virtual environment:
 
-1. Run via uv run:
+Run via uv run:
 ```bash
 uv run ticktask
+```
+
+Run timer-only mode:
+```bash
+uv run ticktask --pomodoro-only
+```
+
+## Documentation
+- [Documentation Inde](docs/index.md)
+- [Usage and CLI flags](docs/usage.md)
+- [Keyboard shortcuts](docs/shortcuts.md)
+- [Task workflows](docs/workflows.md)
+- [Docker guide](docs/docker.md)
+- [Development notes](docs/development.md)
+- [Architecture](docs/architecture.md)
+
+## Development Checks
+```bash
+uv sync --group dev
+uv run ruff check
+uv run mypy
+uv run pytest
 ```
