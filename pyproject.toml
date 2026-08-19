@@ -40,15 +40,31 @@ include = [
 
 [tool.mypy]
 python_version = "3.13"
-files = ["src", "tests"]
+files = ["src"]
 mypy_path = "src"
 explicit_package_bases = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_redundant_castes = true
+no_implicit_optional = true
+no_implicit_reexport = true
+strict_equality = true
 
 [[tool.mypy.overrides]]
 ignore_missing_imports = true
 module = [
     "pystray.*"
 ]
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs=false
+check_untyped_defs=false
+warn_return_any = false
+no_implicit_reexport = false
 
 [tool.pytest.ini_options]
 addopts = [
