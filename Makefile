@@ -1,9 +1,12 @@
 .RECIPEPREFIX := $() $()
 
-.PHONY: install fmt lint style test verify clean
+.PHONY: install run fmt lint style test verify clean
 
 install:
     uv sync
+
+run:
+    uv run ticktask
 
 fmt:
     uv run ruff format .
