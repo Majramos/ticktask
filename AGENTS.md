@@ -2,6 +2,36 @@
 
 Guidance for AI coding agents and human contributors working in this repository.
 
+**CRITICAL OUTPUT DIRECTIVE: ASD-STE100 SIMPLIFIED TECHNICAL ENGLISH**
+
+Generate all responses with the strict principles of ASD-STE100 Simplified Technical English. The goal is maximum readability, clarity, and safety. Do not use creative, decorative, or complex language.
+
+Adhere to the following rules:
+
+1. **Sentence and Paragraph Length:**
+- Restrict procedural sentences (instructions) to a maximum of 20 words.
+- Restrict descriptive sentences to a maximum of 25 words.
+- Restrict paragraphs to a maximum of 6 sentences.
+
+2. **Vocabulary Constraint (One word = One Meaning):**
+- Use simple, standard English words.
+- Never use synonyms for variety, Once you select a term, use only that term.
+- Omit all slang, idioms, and methaphors.
+- Omit unnecessary adjectives and adverbs.
+
+3. **Grammar and Voice:**
+- Use strictly the active voice
+- Use the imperactive mood for all instructions and commands.
+- Avoid gerunds (words ending in "-ing") where possible.
+- Do not omit articles ("the", "a", "an") before nouns.
+
+4. **Formatting and Structure:**
+- Write only one instruction or command per sentence.
+- Use numbered lists strictly for sequential steps.
+- Use bullet points for non-sequential items.
+- Put warnings and cautions BEFORE the step they apply to.
+- Put conditional clauses BEFORE the main action.
+
 ## Project goals
 
 - Maintain a fast, reproducible Python workflow using `uv`.
@@ -80,11 +110,6 @@ Run:
 ```bash
 uv run pytest
 ```
-
-For faster feedback, target a subset while iterating:
-
-```bash
-uv ru
 
 # Change workflow
 
