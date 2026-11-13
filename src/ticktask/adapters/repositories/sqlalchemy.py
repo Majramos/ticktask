@@ -10,14 +10,13 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from sqlalchemy.sql.elements import ColumnElement
 
+from ticktask.adapters.repositories.orm import ProjectRow, TaskRow, utcnow
 from ticktask.application.exceptions import (
     ProjectNameConflictError,
     ProjectNotFoundError,
 )
 from ticktask.domain.projects import Project
 from ticktask.domain.tasks import NewTask, Task
-from ticktask.adapters.repositories.orm import ProjectRow, TaskRow, utcnow
-
 
 _ACTIVE_TASK: ColumnElement[bool] = and_(
     TaskRow.archived.is_(False), TaskRow.completed.is_(False)
@@ -49,7 +48,7 @@ def _is_foreign_key_error(error: IntegrityError) -> bool:
     return "FOREIGN KEY" in str(error.orig or "").upper()
 
 
-class SQLAlchemyProjectRepository:
+class SqlAlchemyProjectRepository:
     """Persist projects using a caller-owned SQLAlchemy session."""
 
     def __init__(self, session: Session) -> None:
@@ -82,7 +81,7 @@ class SQLAlchemyProjectRepository:
         return _project_from_row(row)
 
 
-class SQLAlchemyTaskRepository:
+class SqlAlchemyTaskRepository:
     """Persist tasks using a caller-owned SQLAlchemy session."""
 
     def __init__(self, session: Session) -> None:
@@ -217,4 +216,4 @@ def _sqlite_datetime(value: datetime) -> datetime:
     return value.replace(tzinfo=None)
 
 
-__all__: list[str] = ["SQLAlchemyProjectRepository", "SQLAlchemyTaskRepository"]
+__all__: list[str] = ["SqlAlchemyProjectRepository", "SqlAlchemyTaskRepository"]

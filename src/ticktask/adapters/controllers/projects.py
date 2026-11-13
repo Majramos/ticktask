@@ -7,7 +7,7 @@ from ticktask.domain.projects import Project
 class ProjectController:
     """Expose project use cases without coupling a UI to application services."""
 
-    def _init_(self, service: ProjectService) -> None:
+    def __init__(self, service: ProjectService) -> None:
         self._service: ProjectService = service
 
     def list_projects(self) -> list[Project]:

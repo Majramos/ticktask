@@ -27,6 +27,7 @@ dev = [
     "mypy>=1.20.0",
     "pre-commit>=4.6.0",
     "pytest>=9.0.3",
+    "pytest-asyncio>=1.4.1.post1",
     "pytest-cov>=7.1.0",
     "pytest-mock>=3.15.1",
     "ruff>=0.15.10",
@@ -74,6 +75,7 @@ addopts = [
     "--cov-report=term-missing",
     "--cov-fail-under=60"
 ]
+asyncio_mode = "auto"
 testpaths = ["tests"]
 
 [tool.coverage.run]

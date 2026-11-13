@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import sys
 from types import TracebackType
+from typing import Self
 
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session, sessionmaker
@@ -23,7 +24,7 @@ class SqlAlchemyUnitOfWork:
         self.projects: SqlAlchemyProjectRepository
         self.tasks: SqlAlchemyTaskRepository
 
-    def __enter__(self) -> SqlAlchemyUnitOfWork:
+    def __enter__(self) -> Self:
         self._session = self._session_factory()
         self.projects = SqlAlchemyProjectRepository(self._session)
         self.tasks = SqlAlchemyTaskRepository(self._session)

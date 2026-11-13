@@ -97,13 +97,13 @@ def _run_app(*, enable_tray: bool, pomodoro_only: bool) -> None:
     finally:
         try:
             publisher.close()
-        except Exception as error:
+        except Exception as error:  # noqa: BLE001 -- best-effort cleanup
             print(f"Publisher cleanup failed: {error}", file=sys.stderr)
 
         if database is not None:
             try:
                 database.dispose()
-            except Exception as error:
+            except Exception as error:  # noqa: BLE001 -- best-effort cleanup
                 print(f"Database cleanup failed: {error}", file=sys.stderr)
 
 
