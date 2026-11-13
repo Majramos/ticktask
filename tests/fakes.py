@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import replace
 from datetime import UTC, datetime, timedelta
 from types import TracebackType
+from typing import Self
 
 from ticktask.application.exceptions import ProjectNameConflictError
 from ticktask.application.projects import ProjectService
@@ -153,7 +154,7 @@ class InMemoryUnitOfWork:
         self.tasks: InMemoryTaskRepository
         self.committed = False
 
-    def __enter__(self) -> InMemoryUnitOfWork:
+    def __enter__(self) -> Self:
         self._local_store = self._shared_store.clone()
         self.projects = InMemoryProjectRepository(self._local_store)
         self.tasks = InMemoryTaskRepository(self._local_store)
@@ -167,7 +168,6 @@ class InMemoryUnitOfWork:
         traceback: TracebackType | None,
     ) -> None:
         self._local_store = None
-        return None
 
     def commit(self) -> None:
         local_store = self._local_store

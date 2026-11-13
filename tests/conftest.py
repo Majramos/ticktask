@@ -5,6 +5,7 @@ from contextlib import ExitStack
 from pathlib import Path
 
 import pytest
+
 from ticktask.infrastructure import Database
 
 
