@@ -13,6 +13,7 @@ fmt:
 
 lint:
     uv run ruff check .
+    uv run ruff format --check
 
 style:
     uv run mypy src tests
