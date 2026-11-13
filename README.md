@@ -56,13 +56,11 @@ uv run ticktask --pomodoro-only
 ```
 
 ## Documentation
-- [Documentation Inde](docs/index.md)
-- [Usage and CLI flags](docs/usage.md)
+- [Documentation index](docs/index.md)
+- [Usage and CLI options](docs/usage.md)
 - [Keyboard shortcuts](docs/shortcuts.md)
-- [Task workflows](docs/workflows.md)
+- [Project and task workflows](docs/workflows.md)
 - [Docker guide](docs/docker.md)
-- [Development notes](docs/development.md)
-- [Architecture](docs/architecture.md)
 
 ## Development Checks
 ```bash

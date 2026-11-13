@@ -12,7 +12,7 @@ variables:
   UV_CACHE_DIR: "$CI_PROJECT_DIR/.uv-cache"
 
 default:
-  image: ghcr.io/astral-sh/uv:python3.13-bookworm-slim
+  image: ghcr.io/astral-sh/uv:python3.14-bookworm-slim
   cache:
     key:
       files:

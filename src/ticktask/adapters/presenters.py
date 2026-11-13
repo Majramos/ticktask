@@ -9,7 +9,6 @@ from ticktask.application.timers import TimerSnapshot
 from ticktask.domain.tasks import Task
 from ticktask.domain.timer import TimerKind
 
-
 SECONDS_PER_MINUTE: Final[int] = 60
 TASK_DATETIME_FORMAT: Final[str] = "%Y-%m-%d %H:%M UTC"
 VISIBLE_TASKS_EMPTY_MESSAGE: Final[str] = "No tasks yet. Press 't' to create one."
@@ -146,8 +145,8 @@ __all__: list[str] = [
     "DEFAULT_TIMER_TONE_COLORS",
     "TIMER_LABELS",
     "TIMER_TONE_COLORS",
-    "TimerToneColors",
     "VISIBLE_TASKS_EMPTY_MESSAGE",
+    "TimerToneColors",
     "format_seconds",
     "format_task_datetime",
     "format_timer_status",

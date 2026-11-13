@@ -1,6 +1,6 @@
 """SQLAlchemy mappings kept outside the domain and application layers."""
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, Index, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -23,7 +23,7 @@ REQUIRED_INDEXES: tuple[Index, ...] = (PROJECT_NAME_INDEX, TASK_ACTIVE_ORDER_IND
 
 def utcnow() -> datetime:
     """Return a timezone-aware UTC timestamp for persisted records."""
-    return datetime.now(timezone.utc)
+    return datetime.now(UTC)
 
 
 class Base(DeclarativeBase):
@@ -77,9 +77,9 @@ class TaskRow(Base):
 
 
 __all__: list[str] = [
+    "REQUIRED_INDEXES",
     "Base",
     "ProjectRow",
-    "REQUIRED_INDEXES",
     "TaskRow",
     "utcnow",
 ]
