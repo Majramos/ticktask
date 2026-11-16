@@ -14,6 +14,8 @@ Pomodoro-style terminal task manager built with [Textual](https://textual.textua
 
 Ticktask combines a Pomodoro timer, project selection, task creation, task completion and task archiving in a terminal UI. It can also run as a timer-only app.
 
+![Ticktask Main Screen](docs/assets/ticktask-main-screen.png)
+
 ## Requirements
 
 - Python `>=3.13`
