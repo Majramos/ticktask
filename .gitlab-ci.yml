@@ -32,10 +32,10 @@ check_format:
     reports:
       codequality: code-quality-report.json
 
-# type_check:
-#   stage: lint
-#   script:
-#     - uv run mypy
+type_check:
+  stage: lint
+  script:
+    - uv run mypy
 
 run_tests:
   stage: test
